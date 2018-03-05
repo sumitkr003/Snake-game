@@ -3,6 +3,7 @@ function init(){
     pen = canvas.getContext('2d');
     W = canvas.width;
     H = canvas.height;
+    game_over = false;
 
     score = 0;
 
@@ -109,6 +110,10 @@ function update(){
 function gameloop(){
     draw();
     update();
+
+    if(game_over==true){
+        clearInterval(f);
+    }
 }
 
 function getRandomFood() {
@@ -128,4 +133,4 @@ function getRandomFood() {
 }
 
 init();
-setInterval(gameloop,100);
+var f = setInterval(gameloop,100);
